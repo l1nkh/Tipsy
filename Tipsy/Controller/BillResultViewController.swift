@@ -10,10 +10,18 @@ import UIKit
 
 class BillResultViewController: UIViewController {
 
+    var tipValue: Double = 10.0;
+    var splitValue: Double = 2.0;
+    var calculatedBill: Double = 0.0;
+    
+    @IBOutlet weak var calculatedBillLabel: UILabel!
+    @IBOutlet weak var splitInfoLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
+        calculatedBillLabel.text = String(format: "%.2f", calculatedBill)
+        splitInfoLabel.text = "Split between \(Int(splitValue)) people, with \(String(format: "%.0f", tipValue))% tip."
     }
     
 
@@ -27,4 +35,8 @@ class BillResultViewController: UIViewController {
     }
     */
 
+    @IBAction func recalculateButtonPressed(_ sender: UIButton) {
+            dismiss(animated: true)
+    }
 }
+
